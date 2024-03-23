@@ -1,16 +1,28 @@
 <?php
 
+use App\Http\Controllers\BoardsController;
+use App\Http\Controllers\BoardTasksController;
+use App\Http\Controllers\BoardTitleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilePasswordController;
+use App\Models\Board;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard', [
+            'boards' => Board::query()->get(),
+        ]);
+    })->name('dashboard');
+
+    Route::resource('boards', BoardsController::class);
+    Route::singleton('boards.title', BoardTitleController::class)->only(['show', 'edit', 'update']);
+    Route::resource('boards.tasks', BoardTasksController::class);
+});
 
 Route::middleware('auth')->group(function () {
     Route::prefix('profile')->as('profile.')->group(function () {
