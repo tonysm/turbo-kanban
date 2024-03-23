@@ -17,3 +17,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+/public/js
+
+/public/css/
+/public/dist/
+.tailwindcss-manifest.json
+tailwindcss
