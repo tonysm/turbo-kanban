@@ -13,7 +13,7 @@
                     @method('PUT')
 
                     <div>
-                        <input data-action="blur->form#submit" data-action="blur->form#submit" class="bg-transparent ring-0 border-0 focus:outline-none focus:ring-0 p-0 outline-none w-full" type="text" name="title" value="{{ $board->title }}" autofocus />
+                        <x-text-input :id="dom_id($board, 'title_field')" class="block w-full" type="text" name="title" :value="old('title', $board->title)" required autofocus autocomplete="off" />
                     </div>
 
                     <a data-form-target="cancel" href="{{ route('boards.title.show', $board) }}" class="sr-only">{{ __('Cancel') }}</a>

@@ -8,6 +8,12 @@ export default class extends Controller {
         this.element.requestSubmit()
     }
 
+    submitFromKeyboard(event) {
+        if (event.shiftKey) return;
+
+        this.submit();
+    }
+
     cancel() {
         this.cancelTarget.click();
     }
@@ -16,7 +22,6 @@ export default class extends Controller {
         if (! success) return
 
         this.element.reset()
-        console.log(this.firstFocusable)
         this.firstFocusable?.focus()
     }
 

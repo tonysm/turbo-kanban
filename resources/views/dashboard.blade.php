@@ -7,9 +7,7 @@
 
     <div class="py-12">
         <div id="boards" class="flex space-x-4 max-w-7xl mx-auto overflow-x-auto sm:px-6 lg:px-8">
-            @foreach ($boards as $board)
-                @include('boards.partials.turbo-frame-board', ['board' => $board])
-            @endforeach
+            @each('boards.partials.turbo-frame-board', $boards, 'board')
 
             @include('boards.partials.new-board')
         </div>
