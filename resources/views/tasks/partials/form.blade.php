@@ -7,6 +7,7 @@
 
     <div class="flex items-center space-x-1">
         <x-primary-button type="submit">{{ __('Save') }}</x-primary-button>
+
         <a data-form-target="cancel" href="{{ route('boards.tasks.index', $board) }}" class="p-2 text-base transition rounded-lg hover:bg-gray-900 focus:bg-gray-900 outline-none focus:ring-2 ring-indigo-500 dark:ring-indigo-600">
             <x-icons.x-mark class="w-4 h-4 dark:text-white" />
             <span class="sr-only">{{ __('Cancel') }}</span>
