@@ -16,7 +16,7 @@ export default class extends Controller {
         this.#sortable = new Sortable(this.element, {
             group: this.groupNameValue,
             animation: 150,
-            ghostClass: this.hasGhostClass ? this.ghostClass : 'opacity-50',
+            ghostClass: this.hasGhostClass ? this.ghostClass : 'opacity-0',
             onEnd: this.#updateOrder.bind(this),
         })
     }

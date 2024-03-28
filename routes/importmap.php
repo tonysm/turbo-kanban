@@ -10,3 +10,4 @@ Importmap::pin("@hotwired/stimulus", to: "/js/vendor/@hotwired--stimulus.js"); /
 Importmap::pin("@hotwired/strada", to: "/js/vendor/@hotwired--strada.js"); // @hotwired/strada@1.0.0-beta1 downloaded from https://ga.jspm.io/npm:@hotwired/strada@1.0.0-beta1/dist/strada.js
 Importmap::pin("@hotwired/stimulus-loading", to: "vendor/stimulus-laravel/stimulus-loading.js", preload: true);Importmap::pin("el-transition", to: "/js/vendor/el-transition.js"); // el-transition@0.0.7 downloaded from https://ga.jspm.io/npm:el-transition@0.0.7/index.js
 Importmap::pin("sortablejs", to: "/js/vendor/sortablejs.js"); // sortablejs@1.15.2 downloaded from https://ga.jspm.io/npm:sortablejs@1.15.2/modular/sortable.esm.js
+Importmap::pin("current.js", to: "/js/vendor/current.js"); // current.js@0.2.1 downloaded from https://ga.jspm.io/npm:current.js@0.2.1/dist/current.js

@@ -9,6 +9,7 @@
         "hotwired-laravel/stimulus-laravel": "^1.1",
         "hotwired-laravel/turbo-laravel": "^2.0.0-beta4",
         "laravel/framework": "^11.0",
+        "laravel/reverb": "@beta",
         "laravel/tinker": "^2.9",
         "tonysm/importmap-laravel": "^2.3",
         "tonysm/tailwindcss-laravel": "^0.14"

@@ -27,6 +27,6 @@ class BoardTitleController extends Controller
             'title' => ['required', 'string', 'max:255'],
         ]));
 
-        return to_route('boards.show', $board);
+        return back();
     }
 }

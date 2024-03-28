@@ -1,0 +1,2 @@
+const e=new Proxy({},{get(e,n){const r={},o=`${t.prefix?`${t.prefix}-`:""}${n}`,c=document.head.querySelectorAll(`meta[name^=${o}-]`);if(c.length>0)return c.forEach((({name:e,content:t})=>{const n=e.slice(o.length+1).replace(/(?:[_-])([a-z0-9])/g,((e,t)=>t.toUpperCase()));r[n]||(r[n]=t)})),r;const a=document.head.querySelector(`meta[name=${o}]`);return a?a.content:r}}),t={prefix:"current"};window.Current=e;export{e as Current,t as config};
+

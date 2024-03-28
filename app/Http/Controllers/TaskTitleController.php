@@ -27,6 +27,6 @@ class TaskTitleController extends Controller
             'title' => ['required', 'max:255'],
         ]));
 
-        return to_route('tasks.title.show', $task);
+        return back();
     }
 }

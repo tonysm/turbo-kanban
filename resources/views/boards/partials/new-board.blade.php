@@ -1,4 +1,4 @@
-<x-turbo::frame id="create_board">
+<div>
     <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
         <form action="{{ route('boards.store') }}" method="post" class="flex p-1 items-center justify-center">
             @csrf
@@ -8,4 +8,4 @@
             </button>
         </form>
     </div>
-</x-turbo::frame>
+</div>

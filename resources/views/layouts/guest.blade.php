@@ -7,6 +7,7 @@
         @if ($viewTransitions ?? false)
         <meta name="view-transition" content="same-origin" />
         @endif
+        @include('layouts.partials.reverb')
         {{ $meta ?? '' }}
 
         <title>{{ config('app.name', 'Laravel') }}</title>

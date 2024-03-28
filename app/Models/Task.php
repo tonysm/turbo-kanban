@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\Orderable;
+use HotwiredLaravel\TurboLaravel\Models\Broadcasts;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,8 +13,11 @@ class Task extends Model
     use Orderable {
         newOrderMovingQuery as newOrderMovingQueryFromBase;
     }
+    use Broadcasts;
 
     protected $guarded = [];
+
+    protected $broadcastsRefreshesTo = ['board'];
 
     public function board()
     {

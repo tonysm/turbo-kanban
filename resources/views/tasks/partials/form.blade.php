@@ -1,4 +1,4 @@
-<form action="{{ route('boards.tasks.store', $board) }}" method="post" data-controller="form textarea-autogrow" data-action="keydown.esc->form#cancel turbo:submit-end->form#resetIfFrameSubmitWasSuccessful turbo:submit-end->textarea-autogrow#resetIfSubmitSuccessful focus->form#noop:stop focusleave->form#cancel">
+<form data-turbo-frame="_top" action="{{ route('boards.tasks.store', $board) }}" method="post" data-controller="form textarea-autogrow" data-action="keydown.esc->form#cancel turbo:submit-end->form#resetIfFrameSubmitWasSuccessful turbo:submit-end->textarea-autogrow#resetIfSubmitSuccessful focus->form#noop:stop focusleave->form#cancel">
     @csrf
 
     <div class="mb-2">

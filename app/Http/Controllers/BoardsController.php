@@ -21,12 +21,6 @@ class BoardsController extends Controller
             'position' => (Board::query()->max('position') ?? -1) + 1,
         ]);
 
-        if ($request->wantsTurboStream()) {
-            return turbo_stream()->append('boards', view('boards.partials.turbo-frame-board', [
-                'board' => $board,
-            ]));
-        }
-
         return back();
     }
 
@@ -34,10 +28,6 @@ class BoardsController extends Controller
     {
         $board->delete();
 
-        if ($request->wantsTurboStream()) {
-            return turbo_stream()->remove(dom_id($board, 'frame'));
-        }
-
-        return to_route('dashboard');
+        return back();
     }
 }
