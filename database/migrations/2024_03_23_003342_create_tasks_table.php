@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('board_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->text('notes')->nullable();
+            $table->integer('position')->default(0);
             $table->timestamps();
         });
     }

@@ -6,8 +6,10 @@
     </x-slot>
 
     <div class="py-12">
-        <div id="boards" class="flex space-x-4 max-w-7xl mx-auto overflow-x-auto sm:px-6 lg:px-8">
-            @each('boards.partials.turbo-frame-board', $boards, 'board')
+        <div class="flex space-x-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div id="boards" data-controller="sortable" data-sortable-url-value="{{ route('boards.order.update', ['board' => ':item_id']) }}" data-sortable-group-name-value="boards" class="flex flex-1 w-full space-x-4 overflow-x-auto">
+                @each('boards.partials.turbo-frame-board', $boards, 'board')
+            </div>
 
             @include('boards.partials.new-board')
         </div>

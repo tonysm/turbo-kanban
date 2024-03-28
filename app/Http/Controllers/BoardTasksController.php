@@ -25,10 +25,12 @@ class BoardTasksController extends Controller
     {
         $task = $board->tasks()->create($request->validate([
             'title' => ['required', 'string', 'max:255'],
-        ]));
+        ]) + [
+            'position' => ($board->tasks()->max('tasks.position') ?? -1) + 1,
+        ]);
 
         if ($request->wantsTurboStream()) {
-            return turbo_stream()->before(dom_id($board, 'create_task'), view('tasks.partials.task-frame', [
+            return turbo_stream()->append(dom_id($board, 'tasks'), view('tasks.partials.task-frame', [
                 'task' => $task,
             ]));
         }

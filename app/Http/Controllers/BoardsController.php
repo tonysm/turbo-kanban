@@ -11,7 +11,6 @@ class BoardsController extends Controller
     {
         return view('boards.show', [
             'board' => $board,
-            'tasks' => $board->tasks,
         ]);
     }
 
@@ -19,10 +18,11 @@ class BoardsController extends Controller
     {
         $board = Board::create([
             'title' => Board::DEFAULT_TITLE_NAME,
+            'position' => (Board::query()->max('position') ?? -1) + 1,
         ]);
 
         if ($request->wantsTurboStream()) {
-            return turbo_stream()->before('create_board', view('boards.partials.turbo-frame-board', [
+            return turbo_stream()->append('boards', view('boards.partials.turbo-frame-board', [
                 'board' => $board,
             ]));
         }

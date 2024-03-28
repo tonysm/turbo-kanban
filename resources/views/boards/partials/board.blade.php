@@ -19,8 +19,9 @@
         </form>
     </div>
 
-    <div :id="[$board, 'tasks']">
+    <div id="{{ dom_id($board, 'tasks') }}" data-controller="sortable" data-sortable-parent-id="{{ $board->id }}" data-sortable-url-value="{{ route('tasks.order.update', ['task' => ':item_id']) }}" data-sortable-group-name-value="tasks">
         @each('tasks.partials.task-frame', $board->tasks, 'task')
-        @include('tasks.partials.new-task')
     </div>
+
+    @include('tasks.partials.new-task')
 </div>
