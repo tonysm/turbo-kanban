@@ -6,6 +6,7 @@ use App\Models\Concerns\Orderable;
 use HotwiredLaravel\TurboLaravel\Models\Broadcasts;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Task extends Model
 {
@@ -18,6 +19,15 @@ class Task extends Model
     protected $guarded = [];
 
     protected $broadcastsRefreshesTo = ['board'];
+
+    protected $touches = ['board'];
+
+    public static function booted()
+    {
+        static::creating(function ($task) {
+            $task->client_id ??= (string) Str::random(32);
+        });
+    }
 
     public function board()
     {

@@ -1,5 +1,10 @@
 <div id="{{ dom_id($board) }}" data-sortable-id="{{ $board->id }}" class="flex-shrink-0 w-full max-w-sm">
-    <div class="dark:text-white p-4 bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg">
+    <div
+        class="dark:text-white p-4 bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg"
+        data-controller="task-form"
+        data-task-form-form-outlet="#@domid($board, 'create_task')"
+        data-task-form-autogrow-outlet="#@domid($board, 'create_task')"
+    >
         <div class="flex items-start justify-between space-x-2">
             <x-turbo::frame :id="[$board, 'title']" class="block flex-1 group">
                 @if ($board->wasRecentlyCreated)
@@ -19,7 +24,7 @@
             </form>
         </div>
 
-        <div id="{{ dom_id($board, 'tasks') }}" data-controller="sortable" data-sortable-parent-id="{{ $board->id }}" data-sortable-url-value="{{ route('tasks.order.update', ['task' => ':item_id']) }}" data-sortable-group-name-value="tasks">
+        <div data-task-form-target="tasks" id="{{ dom_id($board, 'tasks') }}" data-controller="sortable" data-sortable-parent-id="{{ $board->id }}" data-sortable-url-value="{{ route('tasks.order.update', ['task' => ':item_id']) }}" data-sortable-group-name-value="tasks">
             @each('tasks.partials.task-frame', $board->tasks, 'task')
         </div>
 

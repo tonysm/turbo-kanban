@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.sortable-ghost {
+    @apply opacity-0;
+}
+
+.sortable-drag {
+    @apply !ring-0 !outline-none shadow-lg;
+}
