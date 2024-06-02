@@ -8,7 +8,7 @@ export default class extends Controller {
         url: String,
     }
 
-    static classes = ['ghost']
+    static classes = ['ghost', 'chosen']
 
     #sortable
 
@@ -16,8 +16,8 @@ export default class extends Controller {
         this.#sortable = new Sortable(this.element, {
             group: this.groupNameValue,
             animation: 150,
-            ghostClass: this.hasGhostClass ? this.ghostClass : 'opacity-0',
             onEnd: this.#updateOrder.bind(this),
+            dragClass: 'rotate-45',
         })
     }
 
