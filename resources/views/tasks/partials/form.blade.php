@@ -8,6 +8,7 @@
         keydown.esc->form#cancel
         focus->form#noop:stop
         focusleave->form#cancel
+        turbo:submit-failed-async->task-form#markPendingAsFailed
     "
 >
     @csrf

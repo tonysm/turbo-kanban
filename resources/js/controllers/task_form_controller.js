@@ -27,6 +27,13 @@ export default class extends Controller {
         this.autogrowOutlet.reset()
     }
 
+    async markPendingAsFailed(event) {
+        const failed = this.tasksTarget.querySelector(`#frame_task_${event.detail.data.client_id}`)
+
+        failed?.removeAttribute('data-pending')
+        failed?.setAttribute('data-failed', '')
+    }
+
     #validInput() {
         return this.textTarget.value.trim().length > 0
     }
